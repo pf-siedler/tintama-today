@@ -1,0 +1,10 @@
+.tintama-today-worktime {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  font-size: 124px;
+  z-index: 4000;
+  text-anchor: end;
+  vertical-align: baseline;
+  opacity: 0.4;
+}

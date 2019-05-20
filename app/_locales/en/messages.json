@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "kingtime today worktime",
+    "description": "The name of the application"
+  },
+  "appShortName": {
+    "message": "kintamatoday",
+    "description": "The short_name (maximum of 12 characters recommended) is a short version of the app's name."
+  },
+  "appDescription": {
+    "message": "KING OF TIMEのタイムカードを読み取り、今日の労働時間を表示します",
+    "description": "The description of the application"
+  }
+}
