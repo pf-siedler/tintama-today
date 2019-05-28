@@ -1,10 +1,18 @@
-.tintama-today-worktime {
+.tintama-today > div {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
-  font-size: 124px;
   z-index: 4000;
   text-anchor: end;
   vertical-align: baseline;
   opacity: 0.4;
+}
+
+.tintama-today--breaktime {
+  font-size: 36px;
+  bottom: 180px;
+  right: 20px;
+}
+.tintama-today--worktime {
+  font-size: 124px;
+  bottom: 80px;
+  right: 20px;
 }

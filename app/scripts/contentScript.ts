@@ -30,10 +30,8 @@ function main(): void {
   console.log(`労働時間：${timeFormat(worktTime)}`);
   console.log(`休憩時間：${timeFormat(sumOfBreaks)}`);
 
-  const worktimeDOM = document.createElement('div');
-  worktimeDOM.className = 'tintama-today-worktime';
-  worktimeDOM.textContent = `今日の労働時間：${timeFormat(worktTime)}`;
-  document.body.insertBefore(worktimeDOM, document.body.firstChild);
+  const dom = createDOM(worktTime, sumOfBreaks);
+  document.body.insertBefore(dom, document.body.firstChild);
 }
 
 function getTodayRow(rows: HTMLCollection): Element | null {
@@ -125,6 +123,20 @@ function timeFormat(minutes: number): string {
   const m = minutes - h * 60;
 
   return `${h}:${m >= 10 ? m : '0' + m}`;
+}
+
+function createDOM(worktTime: number, breakTime: number): HTMLElement {
+  const appDOM = document.createElement('div');
+  appDOM.className = 'tintama-today';
+  const worktTimeDOM = document.createElement('div');
+  const breakTimeDOM = document.createElement('div');
+  worktTimeDOM.className = 'tintama-today--worktime';
+  worktTimeDOM.textContent = `今日の労働時間：${timeFormat(worktTime)}`;
+  breakTimeDOM.className = 'tintama-today--breaktime';
+  breakTimeDOM.textContent = `休憩時間：${timeFormat(breakTime)}`;
+  appDOM.appendChild(breakTimeDOM);
+  appDOM.appendChild(worktTimeDOM);
+  return appDOM;
 }
 
 main();
