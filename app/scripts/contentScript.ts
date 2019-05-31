@@ -24,7 +24,7 @@ function main(): void {
     console.warn('終了していない休憩時間が複数あります');
     return;
   }
-  const sumOfBreaks = breaks.map(e => durationMinites(e)).reduce((prev, current, _1, _2) => prev + current);
+  const sumOfBreaks = breaks.map(e => durationMinites(e)).reduce((prev, current, _1, _2) => prev + current, 0);
   const fromStart = durationMinites({ start: startTime, end: null });
   const worktTime = fromStart - sumOfBreaks;
   console.log(`労働時間：${timeFormat(worktTime)}`);
