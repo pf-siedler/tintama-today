@@ -5,6 +5,8 @@ type Period = {
   end: Date | null;
 };
 
+let dom: HTMLElement;
+
 function main(): void {
   const table = <HTMLElement>document.querySelector('div.htBlock-adjastableTableF > div > table > tbody');
   const rows = table.children;
@@ -25,12 +27,19 @@ function main(): void {
     return;
   }
   const sumOfBreaks = breaks.map(e => durationMinites(e)).reduce((prev, current, _1, _2) => prev + current, 0);
+
+  show(startTime, sumOfBreaks);
+  window.setInterval(() => show(startTime, sumOfBreaks), 60000);
+}
+
+function show(startTime: Date, sumOfBreaks: number): void {
+  if (dom) {
+    dom.remove();
+  }
   const fromStart = durationMinites({ start: startTime, end: null });
   const worktTime = fromStart - sumOfBreaks;
-  console.log(`労働時間：${timeFormat(worktTime)}`);
-  console.log(`休憩時間：${timeFormat(sumOfBreaks)}`);
 
-  const dom = createDOM(worktTime, sumOfBreaks);
+  dom = createDOM(worktTime, sumOfBreaks);
   document.body.insertBefore(dom, document.body.firstChild);
 }
 
